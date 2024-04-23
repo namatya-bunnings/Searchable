@@ -8,16 +8,15 @@ const Checkbox = ({
   handleChange: (status: boolean) => void;
 }) => {
   return (
-    <>
-      <div>
-        <input
-          type="checkbox"
-          checked={checkboxIsChecked}
-          onChange={(event) => handleChange(event.target.checked)}
-        />
-      </div>
-      <p>Only Show products with stocks</p>
-    </>
+    <div>
+      <input
+        id="isStocked"
+        type="checkbox"
+        checked={checkboxIsChecked}
+        onChange={(event) => handleChange(event.target.checked)}
+      />
+      <label htmlFor="isStocked">Only Show products with stocks</label>
+    </div>
   );
 };
 export default Checkbox;
