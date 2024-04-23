@@ -31,8 +31,8 @@ export const getSearchedQueryOrProductLists = ({
     filteredProducts = filteredProducts.filter((product) => product.stocked);
   }
   if (searchQuery) {
-    filteredProducts = filteredProducts.filter(
-      (product) => product.name.toLowerCase() === searchQuery.toLowerCase(),
+    filteredProducts = filteredProducts.filter((product) =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase() || ""),
     );
   }
   return getProductsGroupedByCategory(filteredProducts);
