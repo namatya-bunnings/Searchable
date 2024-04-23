@@ -35,7 +35,7 @@ const FilterableProductTable = () => {
         checkboxIsChecked={checkboxIsChecked}
         handleChange={handleChange}
       />
-      <ProductLists productLists={productLists} />;
+      <ProductLists productLists={productLists} />
     </FilterableProductTableWrapper>
   );
 };
