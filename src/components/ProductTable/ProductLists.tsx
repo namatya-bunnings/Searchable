@@ -1,18 +1,9 @@
 import React from "react";
 import { ProductsProps } from "./ProductTable.types";
-import {
-  getProductsGroupedByCategory,
-  getSearchedQueryOrProductLists,
-} from "../../utils/getProductsGroupedByCategory";
 import ProductCategory from "../ProductCategory/ProductCategory";
 import "./ProductTable.css";
 
-const ProductLists: React.FC<ProductsProps> = ({
-  products,
-  searchQuery,
-  checkboxIsChecked,
-}) => {
-  const productsGroupedByCategory = getProductsGroupedByCategory(products);
+const ProductLists: React.FC<ProductsProps> = ({ productLists }) => {
   return (
     <table>
       <thead>
@@ -22,16 +13,12 @@ const ProductLists: React.FC<ProductsProps> = ({
         </tr>
       </thead>
       <tbody>
-        {productsGroupedByCategory.map((groupedProduct, index) => {
+        {productLists.map((groupedProducts, index) => {
           return (
             <ProductCategory
               key={index}
-              category={groupedProduct[0].category}
-              products={getSearchedQueryOrProductLists({
-                searchQuery,
-                products: groupedProduct,
-                checkboxIsChecked,
-              })}
+              category={groupedProducts[0].category}
+              products={groupedProducts}
             />
           );
         })}
