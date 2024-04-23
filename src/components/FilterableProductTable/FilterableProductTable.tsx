@@ -4,6 +4,7 @@ import FilterableProductTableWrapper from "./FilterableProductTableWrapper";
 import { PRODUCTS } from "../../data/data";
 import SearchBar from "../InputBar/SearchBar";
 import Checkbox from "../Checkbox/Checkbox";
+import { getSearchedQueryOrProductLists } from "../../utils/getProductsGroupedByCategory";
 
 const FilterableProductTable = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -14,6 +15,12 @@ const FilterableProductTable = () => {
   const handleChange = (status: boolean) => {
     setCheckboxIsChecked(status);
   };
+
+  const productLists = getSearchedQueryOrProductLists({
+    products: PRODUCTS,
+    searchQuery,
+    checkboxIsChecked,
+  });
 
   return (
     <FilterableProductTableWrapper>
@@ -28,12 +35,7 @@ const FilterableProductTable = () => {
         checkboxIsChecked={checkboxIsChecked}
         handleChange={handleChange}
       />
-      <ProductLists
-        products={PRODUCTS}
-        searchQuery={searchQuery}
-        checkboxIsChecked={checkboxIsChecked}
-      />
-      ;
+      <ProductLists productLists={productLists} />;
     </FilterableProductTableWrapper>
   );
 };
