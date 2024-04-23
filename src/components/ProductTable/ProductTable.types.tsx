@@ -6,7 +6,5 @@ export type Product = {
 };
 
 export type ProductsProps = {
-  products: Product[];
-  searchQuery: string;
-  checkboxIsChecked: boolean;
+  productLists: Product[][];
 };
