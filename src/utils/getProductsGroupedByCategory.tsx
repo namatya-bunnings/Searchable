@@ -32,7 +32,7 @@ export const getSearchedQueryOrProductLists = ({
   }
   if (searchQuery) {
     filteredProducts = filteredProducts.filter((product) =>
-      product.name.toLowerCase().includes(searchQuery.toLowerCase() || ""),
+      product.name.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   }
   return getProductsGroupedByCategory(filteredProducts);
