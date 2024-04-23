@@ -26,14 +26,14 @@ export const getSearchedQueryOrProductLists = ({
   products: Product[];
   checkboxIsChecked: boolean;
 }) => {
+  let filteredProducts = products;
   if (checkboxIsChecked) {
-    return products.filter((product) => product.stocked);
+    filteredProducts = filteredProducts.filter((product) => product.stocked);
   }
-  if (!searchQuery) {
-    return products;
+  if (searchQuery) {
+    filteredProducts = filteredProducts.filter(
+      (product) => product.name.toLowerCase() === searchQuery.toLowerCase(),
+    );
   }
-
-  return products.filter((product) =>
-    product.name.toLowerCase().includes(searchQuery?.toLowerCase() || ""),
-  );
+  return getProductsGroupedByCategory(filteredProducts);
 };
