@@ -1,6 +1,6 @@
-import { Product } from "../components/ProductTable/ProductTable.types";
+import { Product } from "../components/ProductList/ProductList.types";
 
-const getUniqueCategories = (products: Product[]) => {
+const getCategories = (products: Product[]) => {
   let uniqueCategories: string[] = [];
   products.forEach((product) => {
     if (!uniqueCategories.includes(product.category)) {
@@ -10,14 +10,14 @@ const getUniqueCategories = (products: Product[]) => {
   return uniqueCategories;
 };
 
-export const getProductsGroupedByCategory = (products: Product[]) => {
-  const categories = getUniqueCategories(products);
+const getProductsGroupedByCategories = (products: Product[]) => {
+  const categories = getCategories(products);
   return categories.map((category) => {
     return products.filter((product) => product.category === category);
   });
 };
 
-export const getSearchedQueryOrProductLists = ({
+export const getFilteredProducts = ({
   searchQuery,
   products,
   checkboxIsChecked,
@@ -35,5 +35,5 @@ export const getSearchedQueryOrProductLists = ({
       product.name.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   }
-  return getProductsGroupedByCategory(filteredProducts);
+  return getProductsGroupedByCategories(filteredProducts);
 };
