@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ProductList from "../ProductList";
 import { ProductListProps } from "../../ProductList/ProductList.types";
-
 const setup = (props: ProductListProps) => {
   render(<ProductList {...props} />);
 };
