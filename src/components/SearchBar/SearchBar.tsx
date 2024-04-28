@@ -1,6 +1,6 @@
 import React from "react";
 
-type InputBarProps = {
+export type SearchBarProps = {
   role: string;
   type: string;
   placeholder: string;
@@ -14,7 +14,7 @@ const SearchBar = ({
   placeholder,
   value,
   onChangeHandler,
-}: InputBarProps) => {
+}: SearchBarProps) => {
   return (
     <form role={role}>
       <div>
