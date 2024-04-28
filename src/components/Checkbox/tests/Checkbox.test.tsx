@@ -16,7 +16,7 @@ const checkBoxSampleProps = {
 };
 
 describe("Checkbox", () => {
-  it("renders checkbox", () => {
+  it("renders checkbox correctly", () => {
     setup(checkBoxSampleProps);
     expect(screen.getByRole("checkbox")).toBeInTheDocument();
     expect(
