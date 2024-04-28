@@ -18,8 +18,8 @@ const getProductsGroupedByCategories = (products: Product[]) => {
 };
 
 export const getFilteredProducts = ({
-  searchQuery,
   products,
+  searchQuery,
   checkboxIsChecked,
 }: {
   searchQuery: string;
