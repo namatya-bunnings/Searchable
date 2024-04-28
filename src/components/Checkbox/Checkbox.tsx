@@ -1,12 +1,11 @@
 import React from "react";
 
-const Checkbox = ({
-  checkboxIsChecked,
-  handleChange,
-}: {
+export type CheckboxProps = {
   checkboxIsChecked: boolean;
   handleChange: (status: boolean) => void;
-}) => {
+};
+
+const Checkbox = ({ checkboxIsChecked, handleChange }: CheckboxProps) => {
   return (
     <div>
       <input
