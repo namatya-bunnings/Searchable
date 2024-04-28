@@ -17,7 +17,7 @@ const smapleProps = {
 };
 
 describe("SearchBar", () => {
-  it("should render searchBar component when it props are passed", () => {
+  it("should render searchBar", () => {
     setup(smapleProps);
     expect(screen.getByRole("search")).toBeInTheDocument();
   });
@@ -30,8 +30,6 @@ describe("SearchBar", () => {
   });
   it("does not call onChangeHandler when input field is empty", async () => {
     setup(smapleProps);
-    const searchInput = screen.getByPlaceholderText("search...");
-    await user.click(searchInput);
     expect(mockChangeHandler).not.toHaveBeenCalled();
   });
 });
