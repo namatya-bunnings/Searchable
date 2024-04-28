@@ -1,16 +1,19 @@
 import React from "react";
-import ProductRow from "../ProductRow/ProductRow";
-import { ProductCategoryProps } from "./ProductCategory.types";
+import ProductDetails from "../ProductDetails/ProductDetails";
+import { Product } from "../ProductList/ProductList.types";
 
-const ProductCategory: React.FC<ProductCategoryProps> = ({
+const ProductCategory = ({
   category,
-  products,
+  groupedProducts,
+}: {
+  category: string;
+  groupedProducts: Product[];
 }) => {
   return (
     <>
       <th>{category}</th>
-      {products.map((product, index) => {
-        return <ProductRow product={product} key={index} />;
+      {groupedProducts.map((product, index) => {
+        return <ProductDetails product={product} key={index} />;
       })}
     </>
   );

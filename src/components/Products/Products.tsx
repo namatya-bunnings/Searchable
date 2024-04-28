@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import ProductLists from "../ProductTable/ProductLists";
-import FilterableProductTableWrapper from "./FilterableProductTableWrapper";
+import ProductList from "../ProductList/ProductList";
+import ProductsWrapper from "./ProductsWrapper";
 import { PRODUCTS } from "../../data/data";
-import SearchBar from "../InputBar/SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 import Checkbox from "../Checkbox/Checkbox";
-import { getSearchedQueryOrProductLists } from "../../utils/getProductsGroupedByCategory";
+import { getFilteredProducts } from "../../utils/GetProducts";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
-const FilterableProductTable = () => {
+const Products = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [checkboxIsChecked, setCheckboxIsChecked] = useState<boolean>(false);
   const handleUserInput = (userInput: string) => {
@@ -16,14 +17,14 @@ const FilterableProductTable = () => {
     setCheckboxIsChecked(status);
   };
 
-  const productLists = getSearchedQueryOrProductLists({
+  const productList = getFilteredProducts({
     products: PRODUCTS,
     searchQuery,
     checkboxIsChecked,
   });
 
   return (
-    <FilterableProductTableWrapper>
+    <ProductsWrapper>
       <SearchBar
         role="search"
         type="search"
@@ -35,9 +36,13 @@ const FilterableProductTable = () => {
         checkboxIsChecked={checkboxIsChecked}
         handleChange={handleChange}
       />
-      <ProductLists productLists={productLists} />
-    </FilterableProductTableWrapper>
+      {productList.length ? (
+        <ProductList productList={productList} />
+      ) : (
+        <ErrorMessage />
+      )}
+    </ProductsWrapper>
   );
 };
 
-export default FilterableProductTable;
+export default Products;

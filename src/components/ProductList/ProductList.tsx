@@ -1,9 +1,9 @@
 import React from "react";
-import { ProductsProps } from "./ProductTable.types";
+import { ProductListProps } from "./ProductList.types";
 import ProductCategory from "../ProductCategory/ProductCategory";
-import "./ProductTable.css";
+import "./ProductList.css";
 
-const ProductLists: React.FC<ProductsProps> = ({ productLists }) => {
+const ProductList: React.FC<ProductListProps> = ({ productList }) => {
   return (
     <table>
       <thead>
@@ -13,12 +13,12 @@ const ProductLists: React.FC<ProductsProps> = ({ productLists }) => {
         </tr>
       </thead>
       <tbody>
-        {productLists.map((groupedProducts, index) => {
+        {productList.map((groupedProducts, index) => {
           return (
             <ProductCategory
               key={index}
               category={groupedProducts[0].category}
-              products={groupedProducts}
+              groupedProducts={groupedProducts}
             />
           );
         })}
@@ -26,4 +26,4 @@ const ProductLists: React.FC<ProductsProps> = ({ productLists }) => {
     </table>
   );
 };
-export default ProductLists;
+export default ProductList;

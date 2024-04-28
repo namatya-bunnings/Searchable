@@ -5,7 +5,6 @@ export type Product = {
   stocked: boolean;
 };
 
-export type ProductCategoryProps = {
-  category: string;
-  products: Product[];
+export type ProductListProps = {
+  productList: Product[][];
 };
