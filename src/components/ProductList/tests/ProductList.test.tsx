@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ProductList from "../ProductList";
-import { ProductListProps } from "../../ProductList/ProductList.types";
+import { ProductListProps } from "../ProductList.types";
 const setup = (props: ProductListProps) => {
   render(<ProductList {...props} />);
 };
@@ -55,5 +55,6 @@ describe("ProductList", () => {
     setup(sampleProps);
     expect(screen.getByText("Fruits")).toBeInTheDocument();
     expect(screen.getByText("Vegetables")).toBeInTheDocument();
+    expect(screen.queryByText("Meat")).not.toBeInTheDocument();
   });
 });
