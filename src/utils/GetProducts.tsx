@@ -1,6 +1,6 @@
 import { Product } from "../components/ProductList/ProductList.types";
 
-const getCategories = (products: Product[]) => {
+export const getCategories = (products: Product[]) => {
   let uniqueCategories: string[] = [];
   products.forEach((product) => {
     if (!uniqueCategories.includes(product.category)) {
@@ -10,7 +10,7 @@ const getCategories = (products: Product[]) => {
   return uniqueCategories;
 };
 
-const getProductsGroupedByCategories = (products: Product[]) => {
+export const getProductsGroupedByCategories = (products: Product[]) => {
   const categories = getCategories(products);
   return categories.map((category) => {
     return products.filter((product) => product.category === category);
