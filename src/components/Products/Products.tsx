@@ -36,8 +36,6 @@ const Products = () => {
     };
   });
 
-  console.log({ productListWithCategory });
-
   const productCategories = getCategories(PRODUCTS);
 
   return (
