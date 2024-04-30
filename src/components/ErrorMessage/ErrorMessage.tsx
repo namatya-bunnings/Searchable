@@ -4,7 +4,7 @@ import "./ErrorMessage.css";
 const ErrorMessage = () => {
   return (
     <div className="error">
-      <p>No Match Found! Please try again.</p>
+      <p>No match found. Please try again!</p>
     </div>
   );
 };
