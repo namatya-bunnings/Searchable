@@ -1,4 +1,5 @@
 import React from "react";
+import "./Checkbox.css";
 
 export type CheckboxProps = {
   checkboxIsChecked: boolean;
@@ -7,14 +8,17 @@ export type CheckboxProps = {
 
 const Checkbox = ({ checkboxIsChecked, handleChange }: CheckboxProps) => {
   return (
-    <div>
+    <div className="checkbox">
       <input
+        className="checkboxInput"
         id="isStocked"
         type="checkbox"
         checked={checkboxIsChecked}
         onChange={(event) => handleChange(event.target.checked)}
       />
-      <label htmlFor="isStocked">Only Show products with stocks</label>
+      <label className="checkboxLabel" htmlFor="isStocked">
+        Only show products with stocks
+      </label>
     </div>
   );
 };

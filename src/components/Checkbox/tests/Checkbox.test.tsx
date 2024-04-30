@@ -20,7 +20,7 @@ describe("Checkbox", () => {
     setup(checkBoxSampleProps);
     expect(screen.getByRole("checkbox")).toBeInTheDocument();
     expect(
-      screen.getByLabelText("Only Show products with stocks"),
+      screen.getByLabelText("Only show products with stocks"),
     ).toBeInTheDocument();
   });
   it("should call handleChange with true when checkbox is clicked", async () => {
