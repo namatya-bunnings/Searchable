@@ -44,7 +44,7 @@ describe("Products Component", () => {
       await user.type(searchInput, "Mango");
       expect(screen.queryByText("Apple")).not.toBeInTheDocument();
       expect(
-        screen.getByText("No Match Found! Please try again."),
+        screen.getByText("No match found. Please try again!"),
       ).toBeInTheDocument();
     });
   });
@@ -53,7 +53,7 @@ describe("Products Component", () => {
       setup();
       expect(screen.getByRole("checkbox")).toBeInTheDocument();
       expect(
-        screen.getByLabelText("Only Show products with stocks"),
+        screen.getByLabelText("Only show products with stocks"),
       ).toBeInTheDocument();
     });
     it("only show product items with value 'stocked:true'", async () => {
@@ -63,5 +63,25 @@ describe("Products Component", () => {
       expect(screen.getByText("Apple")).toBeInTheDocument();
       expect(screen.queryByText("Passionfruit")).not.toBeInTheDocument();
     });
+  });
+});
+describe("Select Category", () => {
+  it("shows the category dropdown", () => {
+    setup();
+    expect(screen.getByRole("combobox")).toBeInTheDocument();
+  });
+  it("shows only selected category products", async () => {
+    setup();
+    const categoryDropdown = screen.getByRole("combobox");
+    await user.selectOptions(categoryDropdown, "Fruits");
+    expect(screen.getByText("Apple")).toBeInTheDocument();
+    expect(screen.queryByText("Spinach")).not.toBeInTheDocument();
+  });
+  it("show all the categories and products when no category is selected", async () => {
+    setup();
+    const categoryDropdown = screen.getByRole("combobox");
+    await user.selectOptions(categoryDropdown, "");
+    expect(screen.getByText("Apple")).toBeInTheDocument();
+    expect(screen.getByText("Spinach")).toBeInTheDocument();
   });
 });
