@@ -1,0 +1,26 @@
+.searchInput {
+    width: 100%;
+    font-size: 1rem;
+    border: 0.063rem solid #ccc;
+    border-radius: 0.313rem;
+    margin-bottom: 0.625rem;
+    padding: 0.625rem;
+}
+
+.searchInput:hover{
+    background-color: #f8f8f8;
+}
+
+@media(max-width: 48rem){
+    .searchInput{
+        font-size: 0.875rem;
+
+    }
+}
+
+@media(max-width: 30rem){
+    .searchInput{
+        width: 80%;
+        font-size: 0.825rem;
+    }
+}

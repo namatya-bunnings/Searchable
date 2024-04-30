@@ -1,0 +1,15 @@
+
+.checkboxInput{
+    margin-right:0.5rem;
+}
+
+.checkboxLabel{
+    font-size: 0.8rem;
+}
+
+@media (min-width: 48rem) {
+    .checkboxLabel{
+        font-size: 1rem;
+    }
+}
+
