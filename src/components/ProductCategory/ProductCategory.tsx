@@ -1,17 +1,22 @@
 import React from "react";
 import ProductDetails from "../ProductDetails/ProductDetails";
 import { Product } from "../ProductList/ProductList.types";
+import "./ProductCategory.css";
 
-const ProductCategory = ({
-  category,
-  groupedProducts,
-}: {
+export type ProductCategoryProps = {
   category: string;
   groupedProducts: Product[];
+};
+
+const ProductCategory: React.FC<ProductCategoryProps> = ({
+  category,
+  groupedProducts,
 }) => {
   return (
     <>
-      <th>{category}</th>
+      <div className="category-title">
+        <h4>{category}</h4>
+      </div>
       {groupedProducts.map((product, index) => {
         return <ProductDetails product={product} key={index} />;
       })}
