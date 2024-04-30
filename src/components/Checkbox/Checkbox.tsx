@@ -8,7 +8,7 @@ export type CheckboxProps = {
 
 const Checkbox = ({ checkboxIsChecked, handleChange }: CheckboxProps) => {
   return (
-    <div className="checkbox">
+    <div>
       <input
         className="checkboxInput"
         id="isStocked"
