@@ -15,11 +15,6 @@
 
 }
 
-.search-checkbox{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
 
 @media(max-width:48rem){
     .wrapper{

@@ -36,7 +36,7 @@ const Products = () => {
   return (
     <ProductsWrapper>
       <div className="filter-products">
-        <div className="search-checkbox">
+        <div>
           <SearchBar
             role="search"
             type="search"
