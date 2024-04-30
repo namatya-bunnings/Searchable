@@ -21,10 +21,12 @@ export const getFilteredProducts = ({
   products,
   searchQuery,
   checkboxIsChecked,
+  category,
 }: {
   searchQuery: string;
   products: Product[];
   checkboxIsChecked: boolean;
+  category: string;
 }) => {
   let filteredProducts = products;
   if (checkboxIsChecked) {
@@ -33,6 +35,11 @@ export const getFilteredProducts = ({
   if (searchQuery) {
     filteredProducts = filteredProducts.filter((product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
+  }
+  if (category) {
+    filteredProducts = filteredProducts.filter(
+      (product) => product.category === category,
     );
   }
   return getProductsGroupedByCategories(filteredProducts);

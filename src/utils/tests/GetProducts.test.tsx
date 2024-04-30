@@ -8,6 +8,7 @@ import {
   expectedOutcomeWhenCheckboxIsChecked,
   expectedOutcomeForSearchQuery,
   groupedProductByCategories,
+  expectedOutcomeForSelectedCategory,
 } from "./data/GetProducts.test.data";
 
 describe("getCategories", () => {
@@ -27,18 +28,20 @@ describe("getProductsGroupedByCategories", () => {
 
 describe("getFilteredProducts", () => {
   it.each`
-    input                 | searchQuery | checkboxIsChecked | expectedOutcome
-    ${sampleProductProps} | ${""}       | ${true}           | ${expectedOutcomeWhenCheckboxIsChecked}
-    ${sampleProductProps} | ${"Apple"}  | ${false}          | ${expectedOutcomeForSearchQuery}
-    ${sampleProductProps} | ${""}       | ${false}          | ${groupedProductByCategories}
+    input                 | searchQuery | checkboxIsChecked | category    | expectedOutcome
+    ${sampleProductProps} | ${""}       | ${true}           | ${""}       | ${expectedOutcomeWhenCheckboxIsChecked}
+    ${sampleProductProps} | ${"Apple"}  | ${false}          | ${""}       | ${expectedOutcomeForSearchQuery}
+    ${sampleProductProps} | ${""}       | ${false}          | ${""}       | ${groupedProductByCategories}
+    ${sampleProductProps} | ${""}       | ${false}          | ${"Fruits"} | ${expectedOutcomeForSelectedCategory}
   `(
     "returns filtered product list",
-    ({ input, searchQuery, checkboxIsChecked, expectedOutcome }) => {
+    ({ input, searchQuery, checkboxIsChecked, expectedOutcome, category }) => {
       expect(
         getFilteredProducts({
           products: input,
           searchQuery,
           checkboxIsChecked,
+          category,
         }),
       ).toEqual(expectedOutcome);
     },
