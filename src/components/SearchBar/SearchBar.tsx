@@ -1,4 +1,5 @@
 import React from "react";
+import "./SearchBar.css";
 
 export type SearchBarProps = {
   role: string;
@@ -17,16 +18,15 @@ const SearchBar = ({
 }: SearchBarProps) => {
   return (
     <form role={role}>
-      <div>
-        <input
-          type={type}
-          placeholder={placeholder}
-          value={value}
-          onChange={(event) => {
-            onChangeHandler(event.target.value);
-          }}
-        />
-      </div>
+      <input
+        className="searchInput"
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={(event) => {
+          onChangeHandler(event.target.value);
+        }}
+      />
     </form>
   );
 };
