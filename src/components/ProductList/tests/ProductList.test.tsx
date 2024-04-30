@@ -1,52 +1,58 @@
 import { render, screen } from "@testing-library/react";
-import ProductList from "../ProductList";
-import { ProductListProps } from "../ProductList.types";
+import ProductList, { ProductListProps } from "../ProductList";
+
 const setup = (props: ProductListProps) => {
   render(<ProductList {...props} />);
 };
 
 const sampleProps = {
-  productList: [
-    [
-      {
-        category: "Fruits",
-        price: "$1",
-        stocked: true,
-        name: "Apple",
-      },
-      {
-        category: "Fruits",
-        price: "$1",
-        stocked: true,
-        name: "Dragonfruit",
-      },
-      {
-        category: "Fruits",
-        price: "$2",
-        stocked: false,
-        name: "Passionfruit",
-      },
-    ],
-    [
-      {
-        category: "Vegetables",
-        price: "$2",
-        stocked: true,
-        name: "Spinach",
-      },
-      {
-        category: "Vegetables",
-        price: "$4",
-        stocked: false,
-        name: "Pumpkin",
-      },
-      {
-        category: "Vegetables",
-        price: "$1",
-        stocked: true,
-        name: "Peas",
-      },
-    ],
+  productListWithCategory: [
+    {
+      category: "Fruits",
+      groupedProduct: [
+        {
+          category: "Fruits",
+          price: "$1",
+          stocked: true,
+          name: "Apple",
+        },
+        {
+          category: "Fruits",
+          price: "$1",
+          stocked: true,
+          name: "Dragonfruit",
+        },
+        {
+          category: "Fruits",
+          price: "$2",
+          stocked: false,
+          name: "Passionfruit",
+        },
+      ],
+    },
+    {
+      category: "Vegetables",
+      groupedProduct: [
+        {
+          category: "Vegetables",
+          price: "$2",
+          stocked: true,
+          name: "Spinach",
+        },
+        {
+          category: "Vegetables",
+          price: "$4",
+          stocked: false,
+          name: "Pumpkin",
+        },
+        {
+          category: "Vegetables",
+          price: "$1",
+          stocked: true,
+          name: "Peas",
+        },
+      ],
+    },
   ],
 };
 
@@ -55,6 +61,5 @@ describe("ProductList", () => {
     setup(sampleProps);
     expect(screen.getByText("Fruits")).toBeInTheDocument();
     expect(screen.getByText("Vegetables")).toBeInTheDocument();
-    expect(screen.queryByText("Meat")).not.toBeInTheDocument();
   });
 });

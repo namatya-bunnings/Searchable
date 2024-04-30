@@ -24,12 +24,19 @@ const Products = () => {
     setSelectedCategory(value);
   };
 
-  const productList = getFilteredProducts({
+  const productListWithCategory = getFilteredProducts({
     products: PRODUCTS,
     searchQuery,
     checkboxIsChecked,
     category: selectedCategory,
+  }).map((groupedProduct) => {
+    return {
+      category: groupedProduct[0].category,
+      groupedProduct,
+    };
   });
+
+  console.log({ productListWithCategory });
 
   const productCategories = getCategories(PRODUCTS);
 
@@ -57,8 +64,8 @@ const Products = () => {
         />
       </div>
 
-      {productList.length ? (
-        <ProductList productList={productList} />
+      {productListWithCategory.length >= 1 ? (
+        <ProductList productListWithCategory={productListWithCategory} />
       ) : (
         <ErrorMessage />
       )}

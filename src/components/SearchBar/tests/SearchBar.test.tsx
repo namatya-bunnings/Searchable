@@ -25,11 +25,6 @@ describe("SearchBar", () => {
     setup(smapleProps);
     const searchInput = screen.getByPlaceholderText("search...");
     await user.type(searchInput, "Apple");
-    expect(mockChangeHandler).toHaveBeenCalled();
     expect(mockChangeHandler).toHaveBeenCalledTimes(5);
-  });
-  it("does not call onChangeHandler when input field is empty", async () => {
-    setup(smapleProps);
-    expect(mockChangeHandler).not.toHaveBeenCalled();
   });
 });

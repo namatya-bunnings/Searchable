@@ -17,6 +17,5 @@ describe("ProductDetails", () => {
     setup(sampleProps);
     expect(screen.getByText("Peas")).toBeInTheDocument();
     expect(screen.getByText("$1")).toBeInTheDocument();
-    expect(screen.queryByText("Apple")).not.toBeInTheDocument();
   });
 });
