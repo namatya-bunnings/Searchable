@@ -8,7 +8,7 @@ export type CheckboxProps = {
 
 const Checkbox = ({ checkboxIsChecked, handleChange }: CheckboxProps) => {
   return (
-    <div>
+    <>
       <input
         className="checkboxInput"
         id="isStocked"
@@ -19,7 +19,7 @@ const Checkbox = ({ checkboxIsChecked, handleChange }: CheckboxProps) => {
       <label className="checkboxLabel" htmlFor="isStocked">
         Only show products with stocks
       </label>
-    </div>
+    </>
   );
 };
 export default Checkbox;
