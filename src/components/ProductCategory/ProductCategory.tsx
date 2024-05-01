@@ -17,8 +17,8 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({
       <div className="category-title">
         <h4>{category}</h4>
       </div>
-      {groupedProducts.map((product, index) => {
-        return <ProductDetails product={product} key={index} />;
+      {groupedProducts.map((product) => {
+        return <ProductDetails product={product} key={product.id} />;
       })}
     </>
   );
