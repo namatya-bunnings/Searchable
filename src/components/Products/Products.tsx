@@ -16,7 +16,7 @@ const Products = () => {
   const handleUserInput = (userInput: string) => {
     setSearchQuery(userInput);
   };
-  const handleChange = (status: boolean) => {
+  const handleCheckbox = (status: boolean) => {
     setCheckboxIsChecked(status);
   };
 
@@ -43,7 +43,6 @@ const Products = () => {
       <div className="filter-products">
         <div>
           <SearchBar
-            role="search"
             type="search"
             placeholder="search..."
             value={searchQuery}
@@ -51,7 +50,7 @@ const Products = () => {
           />
           <Checkbox
             checkboxIsChecked={checkboxIsChecked}
-            handleChange={handleChange}
+            handleChange={handleCheckbox}
           />
         </div>
 
