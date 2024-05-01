@@ -1,11 +1,11 @@
 import React from "react";
-import "./ErrorMessage.css";
+import "./NoSearchResultError.css";
 
-const ErrorMessage = () => {
+const NoSearchResultError = () => {
   return (
     <div className="error">
       <p>No match found. Please try again!</p>
     </div>
   );
 };
-export default ErrorMessage;
+export default NoSearchResultError;
