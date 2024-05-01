@@ -9,6 +9,7 @@ const setup = (props: Product) => {
 describe("ProductDetails", () => {
   it("renders the ProductDetails correctly", () => {
     const sampleProps = {
+      id: "1",
       category: "Vegetables",
       price: "$1",
       stocked: true,
