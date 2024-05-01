@@ -22,8 +22,8 @@ const FilterByCategory: React.FC<FilterByCategoryProps> = ({
         onChange={(event) => handleSelectedCategory(event.target.value)}
       >
         <option value="">Select Category</option>
-        {categories.map((category, index) => (
-          <option key={index} value={category}>
+        {categories.map((category) => (
+          <option key={category} value={category}>
             {category}
           </option>
         ))}
