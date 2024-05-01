@@ -1,13 +1,7 @@
 import React from "react";
 import ProductCategory from "../ProductCategory/ProductCategory";
+import { Product } from "./ProductList.types";
 import "./ProductList.css";
-
-type Product = {
-  name: string;
-  price: string;
-  category: string;
-  stocked: boolean;
-};
 
 export type ProductListProps = {
   productListWithCategory: { category: string; groupedProduct: Product[] }[];
@@ -22,9 +16,9 @@ const ProductList: React.FC<ProductListProps> = ({
         <h3>Name</h3>
         <h3>Price</h3>
       </div>
-      {productListWithCategory.map(({ groupedProduct, category }, index) => (
+      {productListWithCategory.map(({ groupedProduct, category }) => (
         <ProductCategory
-          key={index}
+          key={groupedProduct[0].id}
           category={category}
           groupedProducts={groupedProduct}
         />
