@@ -9,7 +9,6 @@ const setup = (props: SearchBarProps) => {
 
 const mockChangeHandler = jest.fn();
 const smapleProps = {
-  role: "search",
   type: "search",
   placeholder: "search...",
   value: "",

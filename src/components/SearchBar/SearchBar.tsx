@@ -2,7 +2,6 @@ import React from "react";
 import "./SearchBar.css";
 
 export type SearchBarProps = {
-  role: string;
   type: string;
   placeholder: string;
   value: string;
@@ -10,14 +9,13 @@ export type SearchBarProps = {
 };
 
 const SearchBar = ({
-  role,
   type,
   placeholder,
   value,
   onChangeHandler,
 }: SearchBarProps) => {
   return (
-    <form role={role}>
+    <form role="search">
       <input
         className="searchInput"
         type={type}
