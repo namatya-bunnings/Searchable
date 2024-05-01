@@ -5,7 +5,7 @@ import { PRODUCTS } from "../../data/data";
 import SearchBar from "../SearchBar/SearchBar";
 import Checkbox from "../Checkbox/Checkbox";
 import { getFilteredProducts, getCategories } from "../../utils/GetProducts";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import NoSearchResultError from "../NoSearchResultError/NoSearchResultError";
 import FilterByCategory from "../FilterByCategory/FilterByCategory";
 
 const Products = () => {
@@ -16,7 +16,7 @@ const Products = () => {
   const handleUserInput = (userInput: string) => {
     setSearchQuery(userInput);
   };
-  const handleCheckbox = (status: boolean) => {
+  const onCheckboxChange = (status: boolean) => {
     setCheckboxIsChecked(status);
   };
 
@@ -50,7 +50,7 @@ const Products = () => {
           />
           <Checkbox
             checkboxIsChecked={checkboxIsChecked}
-            handleChange={handleCheckbox}
+            handleChange={onCheckboxChange}
           />
         </div>
 
@@ -64,7 +64,7 @@ const Products = () => {
       {productListWithCategory.length >= 1 ? (
         <ProductList productListWithCategory={productListWithCategory} />
       ) : (
-        <ErrorMessage />
+        <NoSearchResultError />
       )}
     </ProductsWrapper>
   );
