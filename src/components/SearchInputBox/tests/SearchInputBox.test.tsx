@@ -1,10 +1,10 @@
 import { screen, render } from "@testing-library/react";
-import SearchBar, { SearchBarProps } from "../SearchBar";
+import SearchInputBox, { SearchBarProps } from "../SearchInputBox";
 import userEvent from "@testing-library/user-event";
 const user = userEvent.setup();
 
 const setup = (props: SearchBarProps) => {
-  render(<SearchBar {...props} />);
+  render(<SearchInputBox {...props} />);
 };
 
 const mockChangeHandler = jest.fn();
@@ -15,12 +15,12 @@ const smapleProps = {
   onChangeHandler: mockChangeHandler,
 };
 
-describe("SearchBar", () => {
-  it("should render searchBar", () => {
+describe("SearchInputBox", () => {
+  it("should display search input box", () => {
     setup(smapleProps);
     expect(screen.getByRole("search")).toBeInTheDocument();
   });
-  it("onChangeHandler is called when user types in the input field", async () => {
+  it("should trigger the search when user types in the search box", async () => {
     setup(smapleProps);
     const searchInput = screen.getByPlaceholderText("search...");
     await user.type(searchInput, "Apple");
