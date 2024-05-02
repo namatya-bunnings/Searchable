@@ -1,5 +1,5 @@
 import React from "react";
-import "./SearchBar.css";
+import "./SearchInputBox.css";
 
 export type SearchBarProps = {
   type: string;
@@ -8,7 +8,7 @@ export type SearchBarProps = {
   onChangeHandler: (userInput: string) => void;
 };
 
-const SearchBar = ({
+const SearchInputBox = ({
   type,
   placeholder,
   value,
@@ -28,4 +28,4 @@ const SearchBar = ({
     </form>
   );
 };
-export default SearchBar;
+export default SearchInputBox;
