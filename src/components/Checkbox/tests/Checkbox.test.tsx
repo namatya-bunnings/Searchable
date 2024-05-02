@@ -23,15 +23,14 @@ describe("Checkbox", () => {
       screen.getByLabelText("Only show products with stocks"),
     ).toBeInTheDocument();
   });
-  it("should call handleChange with true when checkbox is clicked", async () => {
-    setup(checkBoxSampleProps);
+  it("should trigger handleChange with true when checkbox is clicked", async () => {
+    setup({ ...checkBoxSampleProps, checkboxIsChecked: false });
     const checkbox = screen.getByRole("checkbox");
     await user.click(checkbox);
-    // const { handleChange } = checkBoxSampleProps;
     expect(mockHandleChange).toHaveBeenCalledTimes(1);
     expect(mockHandleChange).toHaveBeenCalledWith(true);
   });
-  it("should call handleChange with false when checkbox is clicked again", async () => {
+  it("should trigger handleChange with false when checkbox is clicked again", async () => {
     setup({ ...checkBoxSampleProps, checkboxIsChecked: true });
     const checkbox = screen.getByRole("checkbox");
     await user.click(checkbox);
