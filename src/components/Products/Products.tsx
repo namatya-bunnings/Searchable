@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ProductList from "../ProductList/ProductList";
 import ProductsWrapper from "./ProductsWrapper";
 import { PRODUCTS } from "../../data/data";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchInputBox from "../SearchInputBox/SearchInputBox";
 import Checkbox from "../Checkbox/Checkbox";
 import { getFilteredProducts, getCategories } from "../../utils/GetProducts";
 import NoSearchResultError from "../NoSearchResultError/NoSearchResultError";
@@ -42,7 +42,7 @@ const Products = () => {
     <ProductsWrapper>
       <div className="filter-products">
         <div>
-          <SearchBar
+          <SearchInputBox
             type="search"
             placeholder="search..."
             value={searchQuery}
@@ -60,8 +60,7 @@ const Products = () => {
           selectedCategory={selectedCategory}
         />
       </div>
-
-      {productListWithCategory.length >= 1 ? (
+      {productListWithCategory.length > 0 ? (
         <ProductList productListWithCategory={productListWithCategory} />
       ) : (
         <NoSearchResultError />
